@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
@@ -6,18 +7,21 @@ namespace DefaultNamespace
 {
     public class DictationMonitor : MonoBehaviour
     {
-        [SerializeField]
-        private Text m_Hypotheses;
+        // debug text
+        [SerializeField] private Text m_Hypotheses;
+        [SerializeField] private Text m_Recognitions;
 
-        [SerializeField]
-        private Text m_Recognitions;
+        /// <summary>
+        /// Minimum confidence level for the dictation recognizer's results.
+        /// </summary>
+        [SerializeField] private ConfidenceLevel confidenceLevel;
         
         private DictationRecognizer m_DictationRecognizer;
 
         void OnEnable()
         {
 
-            m_DictationRecognizer = new DictationRecognizer();
+            m_DictationRecognizer = new DictationRecognizer(confidenceLevel);
 
             m_DictationRecognizer.DictationResult += (text, confidence) =>
             {
@@ -43,6 +47,12 @@ namespace DefaultNamespace
             };
 
             m_DictationRecognizer.Start();
+        }
+
+        private void OnDisable()
+        {
+            m_DictationRecognizer.Stop();
+            m_DictationRecognizer.Dispose();
         }
     }
 }

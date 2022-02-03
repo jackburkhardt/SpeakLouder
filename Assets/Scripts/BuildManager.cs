@@ -11,12 +11,13 @@ public class BuildManager : MonoBehaviour
     [SerializeField] private Canvas debugScreen;
 
     void Awake() {
+        
         foreach (var display in Display.displays)
         {
             display.Activate();
         }
 
-        Screen.SetResolution(screenWidth,screenHeight, FullScreenMode.FullScreenWindow);
+        Screen.SetResolution(screenWidth, screenHeight, FullScreenMode.FullScreenWindow);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -24,8 +25,10 @@ public class BuildManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if esc is pressed, close program
         if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
 
+        // if D is pressed, toggle visibility of debug canvas
         if (Input.GetKeyDown(KeyCode.D)) debugScreen.enabled = !debugScreen.enabled;
         
     }
