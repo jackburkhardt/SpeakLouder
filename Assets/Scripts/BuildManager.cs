@@ -8,6 +8,7 @@ public class BuildManager : MonoBehaviour
 
     [SerializeField] private int screenWidth;
     [SerializeField] private int screenHeight;
+    [SerializeField] private Canvas debugScreen;
 
     void Awake() {
         foreach (var display in Display.displays)
@@ -24,6 +25,9 @@ public class BuildManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
+
+        if (Input.GetKeyDown(KeyCode.D)) debugScreen.enabled = !debugScreen.enabled;
+        
     }
 
 }

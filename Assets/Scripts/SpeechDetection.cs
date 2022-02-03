@@ -18,7 +18,7 @@ public class SpeechDetection : MonoBehaviour
     [SerializeField] private Text micVolText;
     [SerializeField] private Text micDeviceText;
 
-    private void Start()
+    private void OnEnable()
     {
         foreach (var device in Microphone.devices)
         {
