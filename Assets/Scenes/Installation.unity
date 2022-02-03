@@ -381,7 +381,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.07075471, g: 0.09710556, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -450,7 +450,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.07075471, g: 0.09710556, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1225,7 +1225,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.07075471, g: 0.09710556, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1550,13 +1550,15 @@ MonoBehaviour:
   player2: {fileID: 1649818878}
   player3: {fileID: 1189515488}
   primaryClip1: {fileID: 32900000, guid: 8ae9f2570ef507a41b4f8313016a2643, type: 3}
-  primaryClip2: {fileID: 32900000, guid: 8ae9f2570ef507a41b4f8313016a2643, type: 3}
-  primaryClip3: {fileID: 0}
-  eventClip1: {fileID: 0}
-  eventClip2: {fileID: 0}
-  eventClip3: {fileID: 0}
+  primaryClip2: {fileID: 32900000, guid: 099c3e71b74bbe444ade57da7f82d0b1, type: 3}
+  primaryClip3: {fileID: 32900000, guid: 8ae9f2570ef507a41b4f8313016a2643, type: 3}
+  eventClip1: {fileID: 32900000, guid: 099c3e71b74bbe444ade57da7f82d0b1, type: 3}
+  eventClip2: {fileID: 32900000, guid: 8ae9f2570ef507a41b4f8313016a2643, type: 3}
+  eventClip3: {fileID: 32900000, guid: 099c3e71b74bbe444ade57da7f82d0b1, type: 3}
   blackScreen: {fileID: 294869907}
-  fadeSpeed: 1
+  fadeSpeed: 5
+  eventDuration: 0
+  swapPause: 1
 --- !u!114 &1916925758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1684,7 +1686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Hypotheses: {fileID: 886323594}
   m_Recognitions: {fileID: 1322159224}
-  minimumConfidenceLevel: 1
+  confidenceLevel: 0
 --- !u!1 &2030623536
 GameObject:
   m_ObjectHideFlags: 0

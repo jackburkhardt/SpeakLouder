@@ -6,8 +6,7 @@ using UnityEngine.Video;
 public class BuildManager : MonoBehaviour
 {
 
-    [SerializeField] private int screenWidth;
-    [SerializeField] private int screenHeight;
+    [SerializeField] private int screenWidth = 1920, screenHeight = 1080;
     [SerializeField] private Canvas debugScreen;
 
     void Awake() {

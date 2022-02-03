@@ -16,12 +16,14 @@ namespace DefaultNamespace
         /// </summary>
         [SerializeField] private ConfidenceLevel confidenceLevel;
         
-        private DictationRecognizer m_DictationRecognizer;
+        public static DictationRecognizer m_DictationRecognizer;
 
         void OnEnable()
         {
 
             m_DictationRecognizer = new DictationRecognizer(confidenceLevel);
+            m_DictationRecognizer.InitialSilenceTimeoutSeconds = -1;
+            m_DictationRecognizer.AutoSilenceTimeoutSeconds = -1;
 
             m_DictationRecognizer.DictationResult += (text, confidence) =>
             {
@@ -31,7 +33,7 @@ namespace DefaultNamespace
 
             m_DictationRecognizer.DictationHypothesis += (text) =>
             {
-                Debug.LogFormat("Dictation hypothesis: {0}", text);
+                //Debug.LogFormat("Dictation hypothesis: {0}", text);
                 m_Hypotheses.text += text + "\n";
             };
 
