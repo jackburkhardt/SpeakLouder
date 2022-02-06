@@ -1556,8 +1556,8 @@ MonoBehaviour:
   eventClip2: {fileID: 32900000, guid: 8ae9f2570ef507a41b4f8313016a2643, type: 3}
   eventClip3: {fileID: 32900000, guid: 099c3e71b74bbe444ade57da7f82d0b1, type: 3}
   blackScreen: {fileID: 294869907}
-  fadeSpeed: 5
-  eventDuration: 0
+  fadeDuration: 1
+  eventDuration: 15
   swapPause: 1
 --- !u!114 &1916925758
 MonoBehaviour:

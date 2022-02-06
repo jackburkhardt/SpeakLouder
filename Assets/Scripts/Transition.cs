@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DefaultNamespace;
 using UnityEditor;
@@ -18,7 +19,7 @@ public class Transition : MonoBehaviour
     [SerializeField] private VideoClip eventClip1, eventClip2, eventClip3;
 
     [SerializeField] private Image blackScreen;
-    [SerializeField] private float fadeDuration = 1f, eventDuration, swapPause = 1;
+    [SerializeField] private float fadeDuration = 3f, eventDuration = 15, swapPause = 1;
 
     private bool transitioning;
     
@@ -29,8 +30,7 @@ public class Transition : MonoBehaviour
         {
             if (!transitioning) StartCoroutine(DoTransition());
         };
-
-        eventDuration = (float)eventClip1.length;
+        
     }
 
     // Update is called once per frame
@@ -45,20 +45,21 @@ public class Transition : MonoBehaviour
     /// <returns></returns>
     IEnumerator FadeTransiton()
     {
+        // this could be cleaned up in order to not have to deal with these dumb values
         var startTime = Time.time;
         Color black = new Color(0, 0, 0, 0.0001f);
         var peaked = false;
-        while (black.a >= 0)
+        while (black.a > 0)
         {
             var t = (Time.time - startTime) / fadeDuration;
-            black.a = peaked ? Mathf.SmoothStep(255, 0, t) : Mathf.SmoothStep(0, 255, t);
+            black.a = peaked ? Mathf.SmoothStep(1, 0, t) : Mathf.SmoothStep(0.0001f, 1, t);
             blackScreen.color = black;
             yield return new WaitForFixedUpdate();
             Debug.Log("a: " + black.a);
-            if (black.a >= 255)
+            if (black.a >= 1)
             {
                 peaked = true;
-                startTime = Time.time;
+                startTime = Time.time - 0.01f;
                 Debug.Log("alpha value triggered");
             }
         }
